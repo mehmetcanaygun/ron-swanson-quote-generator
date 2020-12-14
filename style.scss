@@ -1,0 +1,174 @@
+@import "ronswanson";
+
+$color-1: #c23c7f;
+$color-1-dark: #8f2c5d;
+$color-2: #f4a460;
+$color-2-dark: #c2824b;
+$color-3: #b82727;
+$color-3-dark: #831d1d;
+
+* {
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+// Navbar
+.navbar {
+  height: 10%;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+
+  a {
+    color: $color-2;
+    text-decoration: none;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+
+    span {
+      color: $color-3;
+    }
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+
+  .nav-item {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .nav-link:hover {
+    color: #fff;
+  }
+}
+
+#main {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ron-container {
+  width: 50%;
+  padding-top: 90px;
+  border: none;
+}
+
+.quote-container {
+  padding: 0;
+  margin: 0;
+  width: 50%;
+  background-image: linear-gradient($color-3, $color-3-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    div {
+      border-right: 2px solid $color-2;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+
+  .quote {
+    width: 90%;
+    // height: 120px;
+    background-color: $color-2;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 12px;
+    z-index: 1;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+
+  .new-quote-btn {
+    cursor: pointer;
+    font-size: 1.2rem;
+    background-color: $color-3-dark;
+    border: 0;
+    color: $color-2;
+    padding: 10px;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+    z-index: 1;
+  }
+
+  .new-quote-btn:focus {
+    outline: 0;
+  }
+
+  .new-quote-btn:active {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes shrink {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 700px) {
+  .dark-overlay {
+    display: none;
+  }
+
+  #main {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .ron-container {
+      width: 100%;
+      transform: scale(0.6);
+      margin-top: 100px;
+    }
+
+    .quote-container {
+      width: 100%;
+      padding-bottom: 40px;
+    }
+  }
+}
